@@ -39,7 +39,7 @@ for extending agricultural automation.
 ---
 
 ## Paper Reference (Inspiration)
-👉 **[Paper Title Multi-Fruit Classification and Grading Using a
+👉 **Multi-Fruit Classification and Grading Using a
 Same-Domain Transfer Learning Approach
 
   – Author Names LAMA A. ALDAKHIL ANDAESHAHA.ALMUTAIR
