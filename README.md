@@ -44,12 +44,39 @@ Same-Domain Transfer Learning Approach
 
   – Author Names LAMA A. ALDAKHIL ANDAESHAHA.ALMUTAIR
  ](https://drive.google.com/file/d/1puI_8DYmHykNBS2v9Uf_I3KqmslmUcbE/view?usp=sharing)**
-Original conference/IEEE paper used as inspiration for the model.
 
 ---
 
 ## Our Improvement Over Existing Paper
-xxxxxxxxxx
+- Used a dual-stage deep learning framework combining
+ConvNeXt-Tiny for fruit classification and EfficientNetV2-B0 for fruit quality grading.
+
+- Applied same-domain transfer learning between the two models
+classification features from ConvNeXt-Tiny reused for quality prediction in EfficientNetV2-B0.
+
+- Achieved higher accuracy (99.9%) and strong F1-score (95.6%),
+outperforming the reference model which used only EfficientNetV2.
+
+- Designed the system to run smoothly on low-resource local systems (CPU-only)
+without the need for GPUs or high-end infrastructure.
+
+- Integrated advanced data augmentations — AugMix, CutMix, and MixUp —
+along with class-weighted loss functions to handle dataset imbalance effectively.
+
+- Developed a lightweight, modular architecture where classification and grading
+can be trained or updated independently, improving flexibility and maintenance.
+
+- Ensured stable convergence and efficient training using early stopping,
+adaptive learning rates, and two-phase fine-tuning (frozen → unfrozen layers).
+
+- Focused on real-world usability — capable of real-time fruit detection and grading
+suitable for edge devices and agricultural automation.
+
+- Demonstrated computational efficiency — reduced training time and memory usage
+while maintaining state-of-the-art accuracy.
+
+- Presented a complete end-to-end system from dataset preparation to deployment,
+proving that the research model can be transformed into a ready-to-use application.
 
 ---
 
