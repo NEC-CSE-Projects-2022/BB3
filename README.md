@@ -82,11 +82,11 @@ proving that the research model can be transformed into a ready-to-use applicati
 
 ## About the Project
 Give a simple explanation of:
-- ** What your project does :**
+-  What your project does :
   This project automatically classifies and grades multiple types of fruits using a deep learning model based on ConvNeXt-Tiny with a same-domain transfer learning approach. It analyzes fruit images, identifies    the fruit type, and grades it according to quality parameters such as color, texture, and shape.
-- ** Why it is useful : **
+-  Why it is useful : 
  Manual fruit grading is time-consuming, inconsistent, and prone to human error. This automated system helps farmers, distributors, and fruit markets ensure accurate and consistent quality grading. It increases efficiency, reduces labor costs, and improves overall productivity in the agricultural supply chain.
-- ** General project workflow (input → processing → model → output) **
+-  General project workflow (input → processing → model → output) 
 Captured fruit images are given as input → the images are preprocessed and enhanced for better accuracy → the trained ConvNeXt-Tiny-based transfer learning model classifies the fruit type and predicts its quality grade (e.g., Grade A, B, or C) → the output displays the fruit name, grade, and confidence level on the screen for users.
 
 ---
@@ -161,7 +161,7 @@ The trained model was then deployed into an interactive system where users can u
 ---
 
 ## Limitations & Future Work
-** Limitation **
+   #Limitation 
 * The model was trained on a limited fruit dataset, so performance may vary when tested on new fruit types or unseen grading conditions.
 
 * Classification accuracy may reduce under poor lighting, background clutter, or partial fruit visibility.
@@ -169,7 +169,7 @@ The trained model was then deployed into an interactive system where users can u
 * The system currently relies only on RGB image input, which may affect grading precision compared to multi-spectral or hyperspectral imaging.
 
 * Testing was mainly performed in controlled environments, so large-scale real-world validation in farms and markets is still required.
-** Future Work **
+  # Future Work 
 * Train and evaluate the model on larger and more diverse fruit datasets to enhance generalization and reliability.
 
 * Integrate IoT-based sensors or cameras for automated real-time grading in agricultural environments.
