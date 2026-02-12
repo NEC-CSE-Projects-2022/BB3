@@ -42,8 +42,8 @@ for extending agricultural automation.
 👉 **Multi-Fruit Classification and Grading Using a
 Same-Domain Transfer Learning Approach
 
-  – Author Names LAMA A. ALDAKHIL ANDAESHAHA.ALMUTAIR
- ](https://drive.google.com/file/d/1puI_8DYmHykNBS2v9Uf_I3KqmslmUcbE/view?usp=sharing)**
+  Author Names :  LAMA A. ALDAKHIL ANDAESHAHA.ALMUTAIR
+ (https://drive.google.com/file/d/1puI_8DYmHykNBS2v9Uf_I3KqmslmUcbE/view?usp=sharing)**
 
 ---
 
