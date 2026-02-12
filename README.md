@@ -43,7 +43,8 @@ for extending agricultural automation.
 Same-Domain Transfer Learning Approach
 
   Author Names :  LAMA A. ALDAKHIL ANDAESHAHA.ALMUTAIR
- (https://drive.google.com/file/d/1puI_8DYmHykNBS2v9Uf_I3KqmslmUcbE/view?usp=sharing)**
+  
+ (https://drive.google.com/file/d/1puI_8DYmHykNBS2v9Uf_I3KqmslmUcbE/view?usp=sharing)
 
 ---
 
@@ -161,7 +162,7 @@ The trained model was then deployed into an interactive system where users can u
 ---
 
 ## Limitations & Future Work
-   #Limitation 
+   ### Limitation 
 * The model was trained on a limited fruit dataset, so performance may vary when tested on new fruit types or unseen grading conditions.
 
 * Classification accuracy may reduce under poor lighting, background clutter, or partial fruit visibility.
@@ -169,7 +170,7 @@ The trained model was then deployed into an interactive system where users can u
 * The system currently relies only on RGB image input, which may affect grading precision compared to multi-spectral or hyperspectral imaging.
 
 * Testing was mainly performed in controlled environments, so large-scale real-world validation in farms and markets is still required.
-  # Future Work 
+  ### Future Work 
 * Train and evaluate the model on larger and more diverse fruit datasets to enhance generalization and reliability.
 
 * Integrate IoT-based sensors or cameras for automated real-time grading in agricultural environments.
