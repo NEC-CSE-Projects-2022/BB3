@@ -83,8 +83,11 @@ proving that the research model can be transformed into a ready-to-use applicati
 ## About the Project
 Give a simple explanation of:
 - What your project does
+  This project automatically classifies and grades multiple types of fruits using a deep learning model based on ConvNeXt-Tiny with a same-domain transfer learning approach. It analyzes fruit images, identifies    the fruit type, and grades it according to quality parameters such as color, texture, and shape.
 - Why it is useful
+ Manual fruit grading is time-consuming, inconsistent, and prone to human error. This automated system helps farmers, distributors, and fruit markets ensure accurate and consistent quality grading. It increases efficiency, reduces labor costs, and improves overall productivity in the agricultural supply chain.
 - General project workflow (input → processing → model → output)
+Captured fruit images are given as input → the images are preprocessed and enhanced for better accuracy → the trained ConvNeXt-Tiny-based transfer learning model classifies the fruit type and predicts its quality grade (e.g., Grade A, B, or C) → the output displays the fruit name, grade, and confidence level on the screen for users.
 
 ---
 
