@@ -11,7 +11,7 @@ _Work Done: Supported dataset cleaning and labeling, assisted in building and va
 - 22471A05D8 — **Vinnakota Manoj Kumar** ( [LinkedIn](https://linkedin.com/in/xxxxxxxxxx) )
 _Work Done: Focused on setting up the environment, backend integration, and frontend connection for user interaction. Helped deploy the trained model and created interfaces for fruit image upload and grading display._
 
-- 22471A05D4 — **Shaikthettu Sharif** ( [LinkedIn](https://linkedin.com/in/xxxxxxxxxx) )
+- 22471A05D4 — **Shaikthettu Sharif** ( [LinkedIn](https://www.linkedin.com/in/sharif-thettu-700866276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) )
 _Work Done: Contributed to dataset organization, performance analysis, and testing. Helped with report documentation, prepared the presentation, and assisted during the final evaluation and demonstration._
 
 ---
