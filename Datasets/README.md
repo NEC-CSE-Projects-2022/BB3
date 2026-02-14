@@ -107,25 +107,26 @@ This layout is compatible with **PyTorch `torchvision.datasets.ImageFolder`**.
 
 ## Notes
 
--The dataset may have class imbalance across fruit types and quality categories.
+* The dataset may have class imbalance across fruit types and quality categories.
 
--Ensure your splits (train/, val/, test/) are created consistently and do not overlap.
+* Ensure your splits (train/, val/, test/) are created consistently and do not overlap.
 
--Images are RGB fruit images captured under varying lighting conditions.
+* Images are RGB fruit images captured under varying lighting conditions.
 
--Total possible classes (if using fruit + quality together) = 18 classes
+* Total possible classes (if using fruit + quality together) = 18 classes
 (6 fruit types × 3 quality categories).
 
 ## Acknowledgements / License
-- Dataset contributor: Shashwatwork
-- Kaggle hosting + documentation:
+* Dataset contributor: Shashwatwork
+*  Kaggle hosting + documentation:
   https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality
 
 This repository is intended for academic and research purposes. Please refer to the official dataset page for licensing and citation requirements.
- -Classes: 6 fruit types × 3 quality categories (18 total combinations)
 
--Image type: RGB fruit images (.jpg)
+ * Classes: 6 fruit types × 3 quality categories (18 total combinations)
 
--Official source: Kaggle (recommended)
+* Image type: RGB fruit images (.jpg)
+
+* Official source: Kaggle (recommended)
  
 
