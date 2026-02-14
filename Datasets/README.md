@@ -14,7 +14,7 @@
 - **Kaggle (official):**
   https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality
 
-- **Project mirror (Google Drive):**
+- **Project mirror (Google Drive):** <br>
   Bad Quality_Fruits:- https://drive.google.com/drive/folders/1_2Q_buzECLZHPp1NtptZVIB-bdYJYQOl <br>
   Good Quality_Fruits:- https://drive.google.com/drive/folders/1GCckupesBgtPe9_gNtLwBN442EAs8vsj<br>
   Mixed Quality_Fruits:- https://drive.google.com/drive/folders/16Rlz17uV_uy69pqer764bLyZwOkEMADa
@@ -78,53 +78,54 @@ This layout is compatible with **PyTorch `torchvision.datasets.ImageFolder`**.
 
 ### Class Labels
 
-| Label | Description |
-|------:|------------|
-| `akiec` | Actinic keratoses and intraepithelial carcinoma |
-| `bcc` | Basal cell carcinoma |
-| `bkl` | Benign keratosis-like lesions |
-| `df` | Dermatofibroma |
-| `mel` | Melanoma |
-| `nv` | Melanocytic nevi |
-| `vasc` | Vascular lesions |
+### Your dataset has:
 
-## Usage Example (PyTorch)
+#### 6 Fruit Types
 
-```python
-from torchvision import transforms
-from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
+* Apple
 
-transform = transforms.Compose([
-    transforms.Resize((224, 224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                         std=[0.229, 0.224, 0.225])
-])
+* Banana
 
-train_dataset = ImageFolder("Datasets/train", transform=transform)
-train_loader = DataLoader(
-    train_dataset,
-    batch_size=32,
-    shuffle=True,
-    num_workers=4
-)
-```
+* Guava
+
+* Lime
+
+* Orange
+
+* Pomegranate
+
+#### 3 Quality Categories
+
+* Good
+
+* Bad
+
+* Mixed
+
+👉 Total possible combinations = 18 classes (if using fruit + quality together)
+
 
 ## Notes
 
-- The dataset is known to have **strong class imbalance**.
-- Ensure your splits (`train/`, `val/`, `test/`) are created consistently and do not overlap.
+-The dataset may have class imbalance across fruit types and quality categories.
+
+-Ensure your splits (train/, val/, test/) are created consistently and do not overlap.
+
+-Images are RGB fruit images captured under varying lighting conditions.
+
+-Total possible classes (if using fruit + quality together) = 18 classes
+(6 fruit types × 3 quality categories).
 
 ## Acknowledgements / License
-
-- Dataset authors: **HAM10000 contributors**
+- Dataset contributor: Shashwatwork
 - Kaggle hosting + documentation:
-  https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
+  https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality
 
-This repository is intended for **academic and research purposes**. Please refer to the official dataset page for **licensing and citation** requirements.
- - **Classes:** 7
- - **Image type:** RGB dermoscopic images (`.jpg`)
- - **Official source:** Kaggle (recommended)
+This repository is intended for academic and research purposes. Please refer to the official dataset page for licensing and citation requirements.
+ -Classes: 6 fruit types × 3 quality categories (18 total combinations)
+
+-Image type: RGB fruit images (.jpg)
+
+-Official source: Kaggle (recommended)
  
 
