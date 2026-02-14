@@ -1,22 +1,23 @@
 
 ## Dataset (FruitNet)
 
-<img  src="<img width="926" height="620" alt="Screenshot 2026-02-14 142254" src="https://github.com/user-attachments/assets/876cad66-635e-467d-82a2-f9864a6d0fa0" />
-" />
+<img width="926" height="620" alt="Screenshot 2026-02-14 142254" src="https://github.com/user-attachments/assets/876cad66-635e-467d-82a2-f9864a6d0fa0" />
 
 
-- **Total images:** 10,015
-- **Classes:** 7
-- **Image type:** RGB dermoscopic images (`.jpg`)
-- **Official source:** Kaggle (recommended)
+- **Total images:**  14700+
+- **Classes:** 6 fruit types × 3 quality categories (Good, Bad, Mixed) — 18 total classes
+- **Image type:** RGB Fruit images (`.jpg`)
+- **Official source:** Kaggle (FruitNet: Indian Fruits Dataset with Quality)
 
 ### Download Links
 
 - **Kaggle (official):**
-  https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
+  https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality
 
 - **Project mirror (Google Drive):**
-  https://drive.google.com/drive/folders/1r4kdnYIAATud-PUYCgaq6jjpMrdAD76y?usp=sharing
+  Bad Quality_Fruits:- https://drive.google.com/drive/folders/1_2Q_buzECLZHPp1NtptZVIB-bdYJYQOl
+  Good Quality_Fruits:- https://drive.google.com/drive/folders/1GCckupesBgtPe9_gNtLwBN442EAs8vsj
+  Mixed Quality_Fruits:- https://drive.google.com/drive/folders/16Rlz17uV_uy69pqer764bLyZwOkEMADa
 
 > Important: Do **not** commit the dataset images to this repository.
 > Download the dataset locally and place it under `Datasets/` using the structure below.
@@ -28,7 +29,7 @@
 
 2. Download:
    ```bash
-   kaggle datasets download -d kmader/skin-cancer-mnist-ham10000
+   kaggle datasets download -d shashwatwork/fruitnet-indian-fruits-dataset-with-quality
    ```
 
 3. Unzip and arrange images into the structure below.
@@ -39,31 +40,38 @@ Create the following structure inside the project root:
 
 ```text
 Datasets/
-  README.md
   train/
-    akiec/
-    bcc/
-    bkl/
-    df/
-    mel/
-    nv/
-    vasc/
+    Good/
+      Apple/
+      Banana/
+      Guava/
+      Lime/
+      Orange/
+      Pomegranate/
+    Bad/
+      Apple/
+      Banana/
+      Guava/
+      Lime/
+      Orange/
+      Pomegranate/
+    Mixed/
+      Apple/
+      Banana/
+      Guava/
+      Lime/
+      Orange/
+      Pomegranate/
+
   val/
-    akiec/
-    bcc/
-    bkl/
-    df/
-    mel/
-    nv/
-    vasc/
+    Good/
+    Bad/
+    Mixed/
+
   test/
-    akiec/
-    bcc/
-    bkl/
-    df/
-    mel/
-    nv/
-    vasc/
+    Good/
+    Bad/
+    Mixed/
 ```
 
 This layout is compatible with **PyTorch `torchvision.datasets.ImageFolder`**.
