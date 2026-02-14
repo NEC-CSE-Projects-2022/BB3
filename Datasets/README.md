@@ -15,8 +15,8 @@
   https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality
 
 - **Project mirror (Google Drive):**
-  Bad Quality_Fruits:- https://drive.google.com/drive/folders/1_2Q_buzECLZHPp1NtptZVIB-bdYJYQOl
-  Good Quality_Fruits:- https://drive.google.com/drive/folders/1GCckupesBgtPe9_gNtLwBN442EAs8vsj
+  Bad Quality_Fruits:- https://drive.google.com/drive/folders/1_2Q_buzECLZHPp1NtptZVIB-bdYJYQOl <br>
+  Good Quality_Fruits:- https://drive.google.com/drive/folders/1GCckupesBgtPe9_gNtLwBN442EAs8vsj<br>
   Mixed Quality_Fruits:- https://drive.google.com/drive/folders/16Rlz17uV_uy69pqer764bLyZwOkEMADa
 
 > Important: Do **not** commit the dataset images to this repository.
