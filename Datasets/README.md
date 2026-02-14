@@ -1,7 +1,7 @@
 
 ## Dataset (FruitNet)
 
-<img width="1584" height="896" alt="image" src="<img width="926" height="620" alt="Screenshot 2026-02-14 142254" src="https://github.com/user-attachments/assets/876cad66-635e-467d-82a2-f9864a6d0fa0" />
+<img  src="<img width="926" height="620" alt="Screenshot 2026-02-14 142254" src="https://github.com/user-attachments/assets/876cad66-635e-467d-82a2-f9864a6d0fa0" />
 " />
 
 
