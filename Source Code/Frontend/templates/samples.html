@@ -1,1 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Fruit Quality AI - Sample Images{% endblock %}
+
+{% block content %}
+<div class="main-content">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="hero-content animate__animated animate__fadeInUp">
+            <h1 class="hero-title">Sample Images</h1>
+            <p class="hero-subtitle">Explore our fruit quality AI capabilities with sample images</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fruit Grid Section -->
+  <section class="fruit-grid-section py-5">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="section-header text-center mb-5">
+            <h2 class="section-title">Select Fruit Type</h2>
+            <p class="section-subtitle">Click on any fruit to view quality samples</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Apple -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('apple')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/apple_real.jpg" alt="Apple" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-apple-alt me-2"></i>Apple</h4>
+              <p>View Apple Quality Samples</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banana -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('banana')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/banana_real.jpg" alt="Banana" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-banana me-2"></i>Banana</h4>
+              <p>View Banana Quality Samples</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orange -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('orange')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/orange_real.jpg" alt="Orange" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-circle me-2 text-orange"></i>Orange</h4>
+              <p>View Orange Quality Samples</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guava -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('guava')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/guava_real.jpg" alt="Guava" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-seedling me-2 text-success"></i>Guava</h4>
+              <p>View Guava Quality Samples</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lemon -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('lemon')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/lemon_real.jpg" alt="Lemon" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-lemon me-2 text-warning"></i>Lemon</h4>
+              <p>View Lemon Quality Samples</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pomegranate -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="fruit-grid-card" onclick="navigateToQuality('pomegranate')">
+            <div class="fruit-image-wrapper">
+              <img src="/static/samples/pomegranate_real.jpg" alt="Pomegranate" class="fruit-grid-image">
+              <div class="fruit-overlay">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+            <div class="fruit-info">
+              <h4><i class="fas fa-circle-notch me-2 text-danger"></i>Pomegranate</h4>
+              <p>View Pomegranate Quality Samples</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<style>
+.text-orange { color: #ff9800 !important; }
+.text-purple { color: #9c27b0 !important; }
+</style>
+<script>
+function navigateToQuality(fruitType) {
+  // Navigate to the quality page for the selected fruit
+  window.location.href = `/quality/${fruitType}`;
+}
+</script>
+{% endblock %}
 
