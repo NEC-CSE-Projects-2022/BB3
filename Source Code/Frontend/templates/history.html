@@ -1,1 +1,220 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- History Section -->
+<section class="history-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        <i class="fas fa-history text-primary me-2"></i>
+        Analysis History
+      </h2>
+      <p class="lead text-muted">View all your fruit analysis results</p>
+    </div>
+    
+    {% if analyses %}
+      <div class="row g-4" id="historyGrid">
+        {% for analysis in analyses %}
+          <div class="col-md-4 col-lg-3">
+            <div class="history-card animate__animated animate__fadeInUp" 
+                 data-analysis-id="{{ analysis.id }}" 
+                 data-image-path="{{ analysis.image_path }}" 
+                 data-fruit-type="{{ analysis.fruit_type }}" 
+                 data-type-conf="{{ analysis.type_conf }}" 
+                 data-quality="{{ analysis.quality }}" 
+                 data-quality-conf="{{ analysis.quality_conf }}" 
+                 data-valid-any="{{ 'true' if analysis.valid_any else 'false' }}">
+              <div class="history-image-wrapper">
+                <img src="/{{ analysis.image_path }}" alt="{{ analysis.fruit_type }}" class="history-image">
+                <div class="history-badge {{ 'badge-valid' if analysis.valid_any else 'badge-invalid' }}">
+                  {% if analysis.valid_any %}
+                    <i class="fas fa-check-circle"></i> Valid
+                  {% else %}
+                    <i class="fas fa-exclamation-triangle"></i> Invalid
+                  {% endif %}
+                </div>
+              </div>
+              
+              <div class="history-content p-3">
+                <h6 class="fw-bold mb-2">{{ analysis.fruit_type or 'Unknown' }}</h6>
+                
+                <div class="history-details mb-3">
+                  <div class="detail-item">
+                    <span class="detail-label">Type:</span>
+                    <span class="detail-value">{{ analysis.fruit_type or 'Invalid' }}</span>
+                    <span class="confidence">{{ analysis.type_conf }}%</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-label">Quality:</span>
+                    <span class="detail-value">{{ analysis.quality or 'Invalid' }}</span>
+                    <span class="confidence">{{ analysis.quality_conf }}%</span>
+                  </div>
+                </div>
+                
+                <div class="history-actions">
+                  <button class="btn btn-sm btn-primary" onclick="viewDetails('{{ analysis.id }}')">
+                    <i class="fas fa-eye"></i> Details
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis('{{ analysis.id }}')">
+                    <i class="fas fa-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="text-center py-5">
+        <div class="empty-state">
+          <i class="fas fa-history fa-4x text-muted mb-3"></i>
+          <h4 class="text-muted">No Analysis History</h4>
+          <p class="text-muted">Start analyzing fruits to see your history here</p>
+          <a href="{{ url_for('multiple') }}" class="btn btn-primary">
+            <i class="fas fa-upload me-2"></i>Start Analyzing
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Details Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Analysis Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img id="modalImage" src="" alt="" class="img-fluid rounded">
+          </div>
+          <div class="col-md-6">
+            <h6>Fruit Type</h6>
+            <p id="modalFruitType" class="fw-bold"></p>
+            <p>Confidence: <span id="modalTypeConf" class="badge bg-primary"></span></p>
+            
+            <h6 class="mt-3">Quality</h6>
+            <p id="modalQuality" class="fw-bold"></p>
+            <p>Confidence: <span id="modalQualityConf" class="badge bg-primary"></span></p>
+            
+            <h6 class="mt-3">Status</h6>
+            <p id="modalStatus"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+function viewDetails(analysisId) {
+  // Find the analysis card element
+  var card = document.querySelector('[data-analysis-id="' + analysisId + '"]');
+  if (!card) return;
+  
+  // Get data from card attributes
+  var imagePath = card.getAttribute('data-image-path');
+  var fruitType = card.getAttribute('data-fruit-type');
+  var typeConf = card.getAttribute('data-type-conf');
+  var quality = card.getAttribute('data-quality');
+  var qualityConf = card.getAttribute('data-quality-conf');
+  var validAny = card.getAttribute('data-valid-any') === 'true';
+  
+  if (imagePath && fruitType) {
+    document.getElementById('modalImage').src = '/' + imagePath;
+    document.getElementById('modalFruitType').textContent = fruitType || 'Unknown';
+    document.getElementById('modalTypeConf').textContent = typeConf + '%';
+    document.getElementById('modalQuality').textContent = quality || 'Unknown';
+    document.getElementById('modalQualityConf').textContent = qualityConf + '%';
+    document.getElementById('modalStatus').innerHTML = validAny ? 
+      '<span class="badge bg-success"><i class="fas fa-check-circle"></i> Valid</span>' : 
+      '<span class="badge bg-danger"><i class="fas fa-exclamation-triangle"></i> Invalid</span>';
+    
+    var modal = new bootstrap.Modal(document.getElementById('detailsModal'));
+    modal.show();
+  }
+}
+
+function deleteAnalysis(analysisId) {
+  if (confirm('Are you sure you want to delete this analysis?')) {
+    // Send delete request to backend
+    fetch(`/delete_analysis/${analysisId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        showToast(data.message, 'success');
+        // Remove the card from DOM
+        var card = document.querySelector('[data-analysis-id="' + analysisId + '"]');
+        if (card) {
+          card.closest('.col-md-4, .col-lg-3').remove();
+        }
+        // Check if no cards left
+        var remainingCards = document.querySelectorAll('.history-card');
+        if (remainingCards.length === 0) {
+          document.querySelector('#historyGrid').innerHTML = 
+            '<div class="text-center py-5">' +
+              '<div class="empty-state">' +
+                '<i class="fas fa-history fa-4x text-muted mb-3"></i>' +
+                '<h4 class="text-muted">No Analysis History</h4>' +
+                '<p class="text-muted">Start analyzing fruits to see your history here</p>' +
+                '<a href="' + window.location.origin + '/multiple" class="btn btn-primary">' +
+                  '<i class="fas fa-upload me-2"></i>Start Analyzing' +
+                '</a>' +
+              '</div>' +
+            '</div>';
+        }
+      } else {
+        showToast(data.message, 'danger');
+      }
+    })
+    .catch(error => {
+      console.error('Delete error:', error);
+      showToast('Failed to delete analysis', 'danger');
+    });
+  }
+}
+
+function showToast(message, type) {
+  type = type || 'info';
+  
+  // Create toast notification
+  var toastDiv = document.createElement('div');
+  toastDiv.className = 'alert alert-' + type + ' alert-dismissible fade show position-fixed';
+  toastDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 400px;';
+  
+  var icon = 'fas fa-info-circle';
+  if (type === 'success') icon = 'fas fa-check-circle';
+  if (type === 'warning') icon = 'fas fa-exclamation-triangle';
+  if (type === 'danger') icon = 'fas fa-times-circle';
+  
+  toastDiv.innerHTML = 
+    '<strong><i class="' + icon + ' me-2"></i>' + type.charAt(0).toUpperCase() + type.slice(1) + '</strong>' +
+    '<div class="mt-1">' + message + '</div>' +
+    '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+  
+  document.body.appendChild(toastDiv);
+  
+  // Auto-remove after 3 seconds
+  setTimeout(function() {
+    if (toastDiv.parentNode) {
+      toastDiv.parentNode.removeChild(toastDiv);
+    }
+  }, 3000);
+}
+</script>
+{% endblock %}
 
