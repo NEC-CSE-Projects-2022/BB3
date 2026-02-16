@@ -1,1 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Batch Results Section -->
+<section class="batch-results-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        <i class="fas fa-images text-success me-2"></i>
+        Batch Analysis Results
+      </h2>
+      <p class="lead text-muted">Analysis complete for {{ results|length }} images</p>
+    </div>
+    
+    <div class="row g-4" id="batchResultsGrid">
+      {% for result in results %}
+        <div class="col-md-6 col-lg-4">
+          <div class="result-card animate__animated animate__fadeInUp">
+            <div class="result-image-wrapper">
+              <img src="{{ url_for('uploaded_file', filename=result.filename) }}" alt="{{ result.fruit_type }}" class="result-image">
+              <div class="result-badge {{ 'badge-valid' if not result.invalid_any else 'badge-invalid' }}">
+                {% if not result.invalid_any %}
+                  <i class="fas fa-check-circle"></i> Valid
+                {% else %}
+                  <i class="fas fa-exclamation-triangle"></i> Invalid
+                {% endif %}
+              </div>
+            </div>
+            
+            <div class="result-content p-3">
+              <h6 class="fw-bold mb-2">{{ result.fruit_type or 'Unknown' }}</h6>
+              
+              <div class="result-details mb-3">
+                <div class="detail-item">
+                  <span class="detail-label">Type:</span>
+                  <span class="detail-value">{{ result.fruit_type or 'Invalid' }}</span>
+                  <span class="confidence">{{ result.type_conf }}%</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Quality:</span>
+                  <span class="detail-value">{{ result.quality or 'Invalid' }}</span>
+                  <span class="confidence">{{ result.quality_conf }}%</span>
+                </div>
+              </div>
+              
+              <div class="result-actions">
+                <a href="{{ url_for('uploaded_file', filename=result.filename) }}" 
+                   class="btn btn-sm btn-primary" target="_blank">
+                  <i class="fas fa-eye"></i> View
+                </a>
+                <button class="btn btn-sm btn-outline-success" onclick="downloadResult('{{ result.filename }}')">
+                  <i class="fas fa-download"></i> Download
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Summary Statistics -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="summary-card">
+          <h4 class="mb-4">
+            <i class="fas fa-chart-bar me-2"></i>Analysis Summary
+          </h4>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number">{{ results|length }}</div>
+                <div class="stat-label">Total Images</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-success">{{ results|selectattr('invalid_any', 'equalto', false)|list|length }}</div>
+                <div class="stat-label">Valid Results</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-danger">{{ results|selectattr('invalid_any', 'equalto', true)|list|length }}</div>
+                <div class="stat-label">Invalid Results</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="stat-item">
+                <div class="stat-number text-info">{{ "%.1f"|format((results|selectattr('invalid_any', 'equalto', false)|list|length / results|length * 100)) }}%</div>
+                <div class="stat-label">Success Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="text-center mt-4">
+      <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+        <i class="fas fa-upload me-2"></i>Analyze More Images
+      </a>
+      <a href="{{ url_for('history') }}" class="btn btn-outline-secondary btn-lg ms-2">
+        <i class="fas fa-history me-2"></i>View History
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+function downloadResult(filename) {
+  const link = document.createElement('a');
+  link.href = "{{ url_for('uploaded_file', filename='') }}" + filename;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Add some animations on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.result-card');
+  cards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+});
+</script>
+{% endblock %}
 
