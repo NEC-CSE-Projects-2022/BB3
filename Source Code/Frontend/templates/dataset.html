@@ -1,1 +1,661 @@
+{% extends "base.html" %}
+
+{% block title %}Fruit Quality AI - Dataset{% endblock %}
+
+{% block content %}
+<div class="main-content">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="hero-content animate__animated animate__fadeInUp">
+            <h1 class="hero-title">Fruit Quality Dataset</h1>
+            <p class="hero-subtitle">Comprehensive Indian Fruits Dataset with Quality Classification</p>
+            <div class="hero-buttons mt-4">
+              <a href="https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality" 
+                 target="_blank" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-download me-2"></i>Download Dataset
+              </a>
+              <a href="#features" class="btn btn-outline-secondary btn-lg">
+                <i class="fas fa-info-circle me-2"></i>Explore Dataset
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset Statistics -->
+  <section class="dataset-statistics-section py-5">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="section-header text-center mb-5">
+            <h2 class="section-title">Dataset Statistics</h2>
+            <p class="section-subtitle">Comprehensive overview of FruitNet dataset composition</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="statistics-card">
+            <div class="statistics-header">
+              <h3><i class="fas fa-chart-bar text-primary me-2"></i>FruitNet Dataset Overview</h3>
+              <p class="lead">High-quality fruit dataset for machine learning applications</p>
+            </div>
+            
+            <div class="statistics-grid">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-images text-primary"></i>
+                </div>
+                <div class="stat-content">
+                  <h4>14,700+</h4>
+                  <p>Total Images</p>
+                </div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-apple-alt text-danger"></i>
+                </div>
+                <div class="stat-content">
+                  <h4>6</h4>
+                  <p>Fruit Classes</p>
+                </div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-folder-tree text-success"></i>
+                </div>
+                <div class="stat-content">
+                  <h4>3</h4>
+                  <p>Quality Categories</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="fruit-breakdown">
+              <h4><i class="fas fa-list-ul text-info me-2"></i>Fruit Categories</h4>
+              <div class="fruit-list">
+                <div class="fruit-category">
+                  <span class="fruit-name">Apple</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+                <div class="fruit-category">
+                  <span class="fruit-name">Banana</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+                <div class="fruit-category">
+                  <span class="fruit-name">Guava</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+                <div class="fruit-category">
+                  <span class="fruit-name">Lime</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+                <div class="fruit-category">
+                  <span class="fruit-name">Orange</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+                <div class="fruit-category">
+                  <span class="fruit-name">Pomegranate</span>
+                  <span class="quality-badges">
+                    <span class="badge bg-success">Good</span>
+                    <span class="badge bg-danger">Bad</span>
+                    <span class="badge bg-warning">Mixed</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dataset-info-box">
+              <h5><i class="fas fa-info-circle text-primary me-2"></i>Dataset Information</h5>
+              <ul class="info-list">
+                <li><i class="fas fa-check text-success me-2"></i>Images captured with mobile phone high-end resolution camera</li>
+                <li><i class="fas fa-check text-success me-2"></i>Different backgrounds and lighting conditions</li>
+                <li><i class="fas fa-check text-success me-2"></i>Processed format for ML applications</li>
+                <li><i class="fas fa-check text-success me-2"></i>Suitable for training, testing and validation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset Features -->
+  <section id="features" class="features-section py-5 bg-light">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="section-header text-center mb-5">
+            <h2 class="section-title">Dataset Features</h2>
+            <p class="section-subtitle">Comprehensive features for accurate fruit quality analysis</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-images text-primary"></i>
+            </div>
+            <h4>High-Quality Images</h4>
+            <p>1000+ high-resolution images captured in various lighting conditions and angles for robust model training.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tags text-success"></i>
+            </div>
+            <h4>Quality Classification</h4>
+            <p>Three-tier quality classification system: Good Quality, Bad Quality, and Mixed Quality fruits.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-globe text-warning"></i>
+            </div>
+            <h4>Indian Fruit Varieties</h4>
+            <p>Focus on commonly available Indian fruit varieties with authentic quality characteristics.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-balance-scale text-info"></i>
+            </div>
+            <h4>Balanced Dataset</h4>
+            <p>Evenly distributed samples across all fruit types and quality levels to prevent model bias.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-microscope text-danger"></i>
+            </div>
+            <h4>Real-World Scenarios</h4>
+            <p>Images captured in real market conditions with natural defects and quality variations.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-code text-secondary"></i>
+            </div>
+            <h4>Ready for ML</h4>
+            <p>Pre-processed and labeled dataset ready for immediate use in machine learning projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download-section py-5 bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="mb-4">Download Complete Dataset</h2>
+          <p class="lead mb-4">Get access to full FruitNet Indian Fruits Dataset with Quality Classification</p>
+          <div class="download-buttons">
+            <a href="https://www.kaggle.com/datasets/shashwatwork/fruitnet-indian-fruits-dataset-with-quality" 
+                 target="_blank" class="btn btn-light btn-lg me-3">
+              <i class="fas fa-download me-2"></i>Download Dataset
+            </a>
+            <a href="#fruit-types" class="btn btn-outline-light btn-lg">
+              <i class="fas fa-arrow-up me-2"></i>Back to Top
+            </a>
+          </div>
+          <div class="dataset-info mt-4">
+            <p><i class="fas fa-info-circle me-2"></i><strong>Dataset Size:</strong> ~2GB compressed</p>
+            <p><i class="fas fa-images me-2"></i><strong>Total Images:</strong> 1,000+ high-quality images</p>
+            <p><i class="fas fa-tags me-2"></i><strong>Format:</strong> JPG, PNG with metadata</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<style>
+.text-orange { color: #ff9800 !important; }
+.text-lime { color: #84c438 !important; }
+
+.dataset-statistics-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.statistics-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.statistics-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.statistics-header h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.statistics-header .lead {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  width: 60px;
+  text-align: center;
+}
+
+.stat-content h4 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-content p {
+  margin: 0.25rem 0 0 0;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.fruit-breakdown {
+  margin-bottom: 2.5rem;
+}
+
+.fruit-breakdown h4 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.fruit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fruit-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #007bff;
+  transition: all 0.3s ease;
+}
+
+.fruit-category:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.fruit-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.quality-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.quality-badges .badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.dataset-info-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+}
+
+.dataset-info-box h5 {
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.info-list li i {
+  width: 20px;
+  margin-right: 0.75rem;
+}
+
+.fruitnet-overview-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.highlight-box h4 {
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+
+.dataset-structure {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dataset-structure h5 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.structure-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.structure-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.structure-list li:last-child {
+  border-bottom: none;
+}
+
+.fruit-types-showcase {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fruit-types-showcase h5 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.fruits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.fruit-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.fruit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fruit-icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.fruit-item span {
+  font-weight: 500;
+  color: #333;
+}
+
+.image-quality-info {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #007bff;
+}
+
+.image-quality-info h5 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.application-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.app-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.app-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.app-card h6 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.app-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.fruit-type-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.fruit-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.fruit-type-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.fruit-type-header .fruit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.fruit-type-header h4 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.fruit-type-details {
+  padding: 1.5rem;
+}
+
+.fruit-type-details h5 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.quality-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quality-option {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border-left: 4px solid #dee2e6;
+}
+
+.quality-option p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.download-section .dataset-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.download-section .dataset-info i {
+  width: 20px;
+}
+</style>
+{% endblock %}
 
