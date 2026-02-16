@@ -1,0 +1,322 @@
+{
+  "20190813_121706.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 99.96,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770618331.8827674
+  },
+  "20190820_143555.jpg": {
+    "fruit_type": "Pomegranate",
+    "type_conf": 99.99,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770617553.2853959
+  },
+  "IMG_20190822_080144.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 78.97,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770616223.3818245
+  },
+  "IMG_20190822_084343.jpg": {
+    "fruit_type": "Pomegranate",
+    "type_conf": 99.61,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770616227.7797797
+  },
+  "IMG_2367.JPG": {
+    "fruit_type": "Orange",
+    "type_conf": 99.99,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770718539.352014
+  },
+  "IMG_6950.JPG": {
+    "fruit_type": "Lime",
+    "type_conf": 99.98,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770621008.0808733
+  },
+  "IMG_8540.JPG": {
+    "fruit_type": "Banana",
+    "type_conf": 99.95,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 99.99,
+    "valid_any": true,
+    "timestamp": 1770718540.1945343
+  },
+  "Screenshot_2026-01-30_131012.png": {
+    "fruit_type": "Apple",
+    "type_conf": 75.0,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 93.57,
+    "valid_any": true,
+    "timestamp": 1770612683.200769
+  },
+  "WhatsApp_Image_2026-01-09_at_12.15.56_PM.jpeg": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 0.0,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770446392.3143022
+  },
+  "IMG_20190902_102406.jpg": {
+    "fruit_type": "Lime",
+    "type_conf": 99.96,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 99.99,
+    "valid_any": true,
+    "timestamp": 1770447126.261784
+  },
+  "IMG20200728124745.jpg": {
+    "fruit_type": "Pomegranate",
+    "type_conf": 99.66,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 97.09,
+    "valid_any": true,
+    "timestamp": 1770616232.315756
+  },
+  "Screenshot_2026-01-28_231538.png": {
+    "fruit_type": "Guava",
+    "type_conf": 43.26,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 33.45,
+    "valid_any": true,
+    "timestamp": 1770615900.1617086
+  },
+  "20190813_121706_-_Copy.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 99.96,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770627928.8975458
+  },
+  "Screenshot_2026-01-28_231525.png": {
+    "fruit_type": "Apple",
+    "type_conf": 52.3,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 60.35,
+    "valid_any": true,
+    "timestamp": 1770615876.8947413
+  },
+  "download.jpeg": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 52.95,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770718538.6448717
+  },
+  "IMG20200728131824.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 97.95,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 99.89,
+    "valid_any": true,
+    "timestamp": 1770446592.0361998
+  },
+  "Screenshot_2025-11-06_114614.png": {
+    "fruit_type": "Apple",
+    "type_conf": 96.4,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 99.93,
+    "valid_any": true,
+    "timestamp": 1770618216.1045594
+  },
+  "Screenshot_2025-11-06_120529.png": {
+    "fruit_type": "Apple",
+    "type_conf": 100.0,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 97.52,
+    "valid_any": true,
+    "timestamp": 1770446625.226003
+  },
+  "IMG20200728125949.jpg": {
+    "fruit_type": "Apple",
+    "type_conf": 99.14,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 98.57,
+    "valid_any": true,
+    "timestamp": 1770447136.9461076
+  },
+  "Screenshot_2026-02-06_121245.png": {
+    "fruit_type": "Apple",
+    "type_conf": 58.39,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 97.27,
+    "valid_any": true,
+    "timestamp": 1770613885.9905019
+  },
+  "Screenshot_2026-01-30_123411.png": {
+    "fruit_type": "Apple",
+    "type_conf": 45.14,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 52.72,
+    "valid_any": true,
+    "timestamp": 1770615904.7922733
+  },
+  "Screenshot_2026-01-30_123423.png": {
+    "fruit_type": "Guava",
+    "type_conf": 48.0,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 60.18,
+    "valid_any": true,
+    "timestamp": 1770615909.306446
+  },
+  "Screenshot_2026-02-06_225946.png": {
+    "fruit_type": "Banana",
+    "type_conf": 38.53,
+    "quality": "Bad Quality_Fruits",
+    "quality_conf": 41.5,
+    "valid_any": true,
+    "timestamp": 1770615913.9153647
+  },
+  "Screenshot_2026-02-06_234839.png": {
+    "fruit_type": "Guava",
+    "type_conf": 65.34,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 51.43,
+    "valid_any": true,
+    "timestamp": 1770615918.245071
+  },
+  "download_-_Copy.jpeg": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 52.95,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770620991.955984
+  },
+  "20190813_121706_-_Copy_-_Copy.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 99.96,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770718526.6268365
+  },
+  "20190813_121706_-_Copy_2.jpg": {
+    "fruit_type": "Guava",
+    "type_conf": 99.96,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770618302.4741857
+  },
+  "Screenshot_2026-01-30_123411_-_Copy.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 45.14,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770617649.285142
+  },
+  "Screenshot_2026-01-28_231525_-_Copy.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 52.3,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770719540.4250965
+  },
+  "Screenshot_2026-01-28_231538_-_Copy.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 43.26,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770620652.3112397
+  },
+  "Screenshot_2026-02-06_200109.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 58.09,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770617725.6362617
+  },
+  "WhatsApp_Image_2026-02-07_at_11.27.42_PM.jpeg": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 45.79,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770618544.765701
+  },
+  "Screenshot_2026-02-09_124101.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 46.92,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770621093.7719464
+  },
+  "20190820_143555_-_Copy.jpg": {
+    "fruit_type": "Pomegranate",
+    "type_conf": 99.99,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770627933.5063152
+  },
+  "ChatGPT_Image_Feb_11_2026_11_44_19_AM_-_Copy.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 55.9,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770887480.1027062
+  },
+  "banana_good_1.jpg": {
+    "fruit_type": "Banana",
+    "type_conf": 99.98,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770887526.940408
+  },
+  "ChatGPT_Image_Feb_9_2026_08_47_33_PM.png": {
+    "fruit_type": "Invalid Image",
+    "type_conf": 68.95,
+    "quality": "Invalid Image",
+    "quality_conf": 0.0,
+    "valid_any": false,
+    "timestamp": 1770887532.8730717
+  },
+  "apple_good_5_-_Copy.jpg": {
+    "fruit_type": "Apple",
+    "type_conf": 99.09,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770887538.9281418
+  },
+  "apple_good_7.jpg": {
+    "fruit_type": "Apple",
+    "type_conf": 99.09,
+    "quality": "Good Quality_Fruits",
+    "quality_conf": 100.0,
+    "valid_any": true,
+    "timestamp": 1770887878.9838576
+  },
+  "apple_mixed.jpg": {
+    "fruit_type": "Apple",
+    "type_conf": 99.41,
+    "quality": "Mixed Qualit_Fruits",
+    "quality_conf": 99.98,
+    "valid_any": true,
+    "timestamp": 1770887885.4253676
+  }
+}
