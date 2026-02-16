@@ -1,1 +1,272 @@
+{% extends "base.html" %}
+
+{% block title %}Fruit Quality AI - {{ fruit_name.title() }} Quality Samples{% endblock %}
+
+{% block content %}
+<div class="main-content">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="hero-content animate__animated animate__fadeInUp">
+            <h1 class="hero-title">{{ fruit_name.title() }} Quality Samples</h1>
+            <p class="hero-subtitle">Explore different quality levels of {{ fruit_name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Filter Section -->
+  <section class="quality-filter-section py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="filter-controls text-center mb-4">
+            <h3 class="mb-3">Filter by Quality</h3>
+            <div class="filter-buttons">
+              <button class="btn btn-primary active" onclick="filterQuality('all')">
+                <i class="fas fa-th me-2"></i>All Qualities
+              </button>
+              <button class="btn btn-success" onclick="filterQuality('good')">
+                <i class="fas fa-check-circle me-2"></i>Good Quality
+              </button>
+              <button class="btn btn-warning" onclick="filterQuality('bad')">
+                <i class="fas fa-times-circle me-2"></i>Bad Quality
+              </button>
+              <button class="btn btn-secondary" onclick="filterQuality('mixed')">
+                <i class="fas fa-exchange-alt me-2"></i>Mixed Quality
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Samples Section -->
+  <section class="quality-samples-section py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Good Quality -->
+        <div class="col-lg-4 col-md-6 mb-4 quality-item" data-quality="good">
+          <div class="quality-card">
+            <div class="quality-header bg-success">
+              <h5><i class="fas fa-check-circle me-2"></i>Good Quality</h5>
+            </div>
+            <div class="quality-content">
+              <div class="quality-image-wrapper">
+                <img src="/static/samples/{{ fruit_name }}_good.jpg" alt="Good Quality {{ fruit_name.title() }}" class="quality-image">
+                <div class="quality-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="quality-info">
+                <h6>Fresh {{ fruit_name.title() }}</h6>
+                <p>Perfect quality, ready to eat</p>
+                <div class="quality-actions">
+                  <button class="btn btn-sm btn-primary" onclick="showImageModal('/static/samples/{{ fruit_name }}_good.jpg', 'Good Quality {{ fruit_name.title() }}', 'Fresh and perfect quality {{ fruit_name }} - ideal for consumption')">
+                    <i class="fas fa-eye me-1"></i>View
+                  </button>
+                  <button class="btn btn-sm btn-success" onclick="downloadImage('/static/samples/{{ fruit_name }}_good.jpg', '{{ fruit_name }}_good.jpg')">
+                    <i class="fas fa-download me-1"></i>Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bad Quality -->
+        <div class="col-lg-4 col-md-6 mb-4 quality-item" data-quality="bad">
+          <div class="quality-card">
+            <div class="quality-header bg-danger">
+              <h5><i class="fas fa-times-circle me-2"></i>Bad Quality</h5>
+            </div>
+            <div class="quality-content">
+              <div class="quality-image-wrapper">
+                <img src="/static/samples/{{ fruit_name }}_bad.jpg" alt="Bad Quality {{ fruit_name.title() }}" class="quality-image">
+                <div class="quality-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="quality-info">
+                <h6>Rotten {{ fruit_name.title() }}</h6>
+                <p>Poor quality, not suitable for consumption</p>
+                <div class="quality-actions">
+                  <button class="btn btn-sm btn-primary" onclick="showImageModal('/static/samples/{{ fruit_name }}_bad.jpg', 'Bad Quality {{ fruit_name.title() }}', 'Rotten and spoiled {{ fruit_name }} - not suitable for consumption')">
+                    <i class="fas fa-eye me-1"></i>View
+                  </button>
+                  <button class="btn btn-sm btn-success" onclick="downloadImage('/static/samples/{{ fruit_name }}_bad.jpg', '{{ fruit_name }}_bad.jpg')">
+                    <i class="fas fa-download me-1"></i>Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mixed Quality -->
+        <div class="col-lg-4 col-md-6 mb-4 quality-item" data-quality="mixed">
+          <div class="quality-card">
+            <div class="quality-header bg-warning">
+              <h5><i class="fas fa-exchange-alt me-2"></i>Mixed Quality</h5>
+            </div>
+            <div class="quality-content">
+              <div class="quality-image-wrapper">
+                <img src="/static/samples/{{ fruit_name }}_mixed.jpg" alt="Mixed Quality {{ fruit_name.title() }}" class="quality-image">
+                <div class="quality-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </div>
+              <div class="quality-info">
+                <h6>Partially Rotten {{ fruit_name.title() }}</h6>
+                <p>Mixed quality, some parts good, some bad</p>
+                <div class="quality-actions">
+                  <button class="btn btn-sm btn-primary" onclick="showImageModal('/static/samples/{{ fruit_name }}_mixed.jpg', 'Mixed Quality {{ fruit_name.title() }}', 'Partially rotten {{ fruit_name }} - mixed quality with some good and some bad parts')">
+                    <i class="fas fa-eye me-1"></i>View
+                  </button>
+                  <button class="btn btn-sm btn-success" onclick="downloadImage('/static/samples/{{ fruit_name }}_mixed.jpg', '{{ fruit_name }}_mixed.jpg')">
+                    <i class="fas fa-download me-1"></i>Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Samples Button -->
+      <div class="row mt-5">
+        <div class="col-12 text-center">
+          <button class="btn btn-secondary btn-lg" onclick="goBackToSamples()">
+            <i class="fas fa-arrow-left me-2"></i>Back to All Fruits
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sample Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" alt="Sample" class="modal-image">
+        <div class="modal-info mt-3">
+          <h6 id="modalTitle"></h6>
+          <p id="modalDescription"></p>
+          <div class="modal-actions mt-3">
+            <button class="btn btn-primary me-2" onclick="downloadCurrentImage()">
+              <i class="fas fa-download me-2"></i>Download
+            </button>
+            <button class="btn btn-secondary" onclick="window.open('https://images.google.com/search?q=' + encodeURIComponent(document.getElementById('modalTitle').textContent), '_blank')">
+              <i class="fas fa-external-link-alt me-2"></i>Find Similar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+let currentModalImage = '';
+let currentModalTitle = '';
+let currentModalDescription = '';
+
+function filterQuality(quality) {
+  // Remove active class from all buttons
+  document.querySelectorAll('.filter-buttons .btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Add active class to clicked button
+  event.target.classList.add('active');
+  
+  // Show/hide quality items based on quality
+  const qualityItems = document.querySelectorAll('.quality-item');
+  qualityItems.forEach(item => {
+    const itemQuality = item.getAttribute('data-quality');
+    if (quality === 'all' || itemQuality === quality) {
+      item.style.display = 'block';
+      item.classList.add('animate__animated', 'animate__fadeInUp');
+    } else {
+      item.style.display = 'none';
+    }
+  });
+  
+  const qualityText = quality === 'all' ? 'All Qualities' : 
+                     quality === 'good' ? 'Good Quality' :
+                     quality === 'bad' ? 'Bad Quality' : 'Mixed Quality';
+  showToast(`Showing: ${qualityText}`, 'info');
+}
+
+function showImageModal(imageSrc, title, description) {
+  currentModalImage = imageSrc;
+  currentModalTitle = title;
+  currentModalDescription = description;
+  
+  const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+  document.getElementById('modalImage').src = imageSrc;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDescription').textContent = description;
+  modal.show();
+}
+
+function downloadImage(imageSrc, filename) {
+  const a = document.createElement('a');
+  a.href = imageSrc;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showToast(`Downloading: ${filename}`, 'success');
+}
+
+function downloadCurrentImage() {
+  if (currentModalImage) {
+    const a = document.createElement('a');
+    a.href = currentModalImage;
+    a.download = currentModalTitle.replace(/[^a-zA-Z0-9]/g, '_') + '.jpg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showToast(`Downloading: ${currentModalTitle}`, 'success');
+  }
+}
+
+function goBackToSamples() {
+  window.location.href = '/samples';
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+  // Add click handlers to quality images
+  const qualityImages = document.querySelectorAll('.quality-image-wrapper');
+  qualityImages.forEach(wrapper => {
+    wrapper.addEventListener('click', function() {
+      const img = this.querySelector('.quality-image');
+      const card = this.closest('.quality-card');
+      const header = card.querySelector('.quality-header h5').textContent.trim();
+      const info = card.querySelector('.quality-info h6').textContent;
+      const description = card.querySelector('.quality-info p').textContent;
+      
+      if (img && info) {
+        showImageModal(img.src, info, description);
+      }
+    });
+  });
+});
+</script>
+{% endblock %}
 
