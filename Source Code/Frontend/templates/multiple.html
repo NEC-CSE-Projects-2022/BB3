@@ -1,1 +1,312 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Multiple Upload Section -->
+<section class="upload-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="upload-card animate__animated animate__fadeInUp">
+          <div class="card-header bg-gradient-primary text-white text-center py-3">
+            <h3 class="mb-0">
+              <i class="fas fa-home me-2"></i>
+              Upload Fruit Images for Analysis
+            </h3>
+          </div>
+          
+          <div class="card-body p-4">
+            <!-- Drag & Drop Area -->
+            <div id="dropZone" class="drop-zone text-center p-5 mb-4">
+              <div class="drop-zone-content">
+                <i class="fas fa-layer-group fa-3x text-primary mb-3"></i>
+                <h4 class="mb-2">Drag & Drop Multiple Images Here</h4>
+                <p class="text-muted mb-3">or click to browse (up to 10 images)</p>
+                <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('image').click()">
+                  <i class="fas fa-folder-open me-2"></i>Choose Files
+                </button>
+              </div>
+            </div>
+
+            <!-- Hidden File Input -->
+            <form id="predictForm" method="POST" action="{{ url_for('predict') }}" enctype="multipart/form-data" novalidate>
+              <div class="mb-3 d-none">
+                <input class="form-control" type="file" id="image" name="image" accept="image/*" multiple required>
+              </div>
+
+              <!-- File Info Display -->
+              <div id="fileInfo" class="file-info d-none mb-4">
+                <div class="alert alert-info">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-images me-3"></i>
+                    <strong>Selected Files: <span id="fileCount">0</span></strong>
+                  </div>
+                  <div id="fileList" class="file-list"></div>
+                </div>
+              </div>
+
+              <!-- Validation Status -->
+              <div id="validationStatus" class="validation-status d-none mb-4">
+                <div class="d-flex align-items-center">
+                  <div class="spinner-border spinner-border-sm me-3" role="status">
+                    <span class="visually-hidden">Validating...</span>
+                  </div>
+                  <span class="text-muted">Processing images...</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="text-center">
+                <button id="predictBtn" type="submit" class="btn btn-success btn-lg px-5" disabled>
+                  <i class="fas fa-search me-2"></i>Analyze All <span id="analyzeCount">0</span> Images
+                </button>
+                <button type="reset" class="btn btn-outline-secondary btn-lg ms-2" id="resetBtn">
+                  <i class="fas fa-redo me-2"></i>Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Supported Fruits Section -->
+<section id="features" class="features-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        <i class="fas fa-star text-warning me-2"></i>
+        Supported Fruits
+      </h2>
+      <p class="lead text-muted">Our AI can identify and analyze quality of these fruits</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-apple-alt fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Apple</h5>
+          <p class="text-muted small">Fresh & Crisp</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-lemon fa-3x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Lemon</h5>
+          <p class="text-muted small">Citrus Power</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-circle fa-3x text-orange"></i>
+          </div>
+          <h5 class="fw-bold">Orange</h5>
+          <p class="text-muted small">Vitamin Rich</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-seedling fa-3x text-yellow"></i>
+          </div>
+          <h5 class="fw-bold">Banana</h5>
+          <p class="text-muted small">Energy Boost</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-apple-alt fa-3x text-success"></i>
+          </div>
+          <h5 class="fw-bold">Guava</h5>
+          <p class="text-muted small">Tropical Sweet</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-lemon fa-3x text-lime"></i>
+          </div>
+          <h5 class="fw-bold">Lime</h5>
+          <p class="text-muted small">Zesty Fresh</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-circle fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Pomegranate</h5>
+          <p class="text-muted small">Antioxidant</p>
+        </div>
+      </div>
+      
+          </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const fileInput = document.getElementById('image');
+  const predictBtn = document.getElementById('predictBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const dropZone = document.getElementById('dropZone');
+  const fileInfo = document.getElementById('fileInfo');
+  const validationStatus = document.getElementById('validationStatus');
+  const fileCount = document.getElementById('fileCount');
+  const fileList = document.getElementById('fileList');
+  const analyzeCount = document.getElementById('analyzeCount');
+
+  // Drag and Drop functionality
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => {
+      dropZone.classList.add('drag-over');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => {
+      dropZone.classList.remove('drag-over');
+    });
+  });
+
+  dropZone.addEventListener('drop', function(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    if (files.length > 0) {
+      fileInput.files = files;
+      handleFileSelect();
+    }
+  });
+
+  // File input change handler
+  fileInput.addEventListener('change', handleFileSelect);
+
+  function handleFileSelect() {
+    const files = fileInput.files;
+    
+    if (files.length === 0) {
+      clearFile();
+      return;
+    }
+
+    // Limit to 10 files
+    if (files.length > 10) {
+      alert('Maximum 10 files allowed at once. Please select up to 10 images.');
+      return;
+    }
+
+    // Show file info
+    fileInfo.classList.remove('d-none');
+    fileCount.textContent = files.length;
+    analyzeCount.textContent = files.length;
+    
+    // Display file list
+    fileList.innerHTML = '';
+    let totalSize = 0;
+    
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      totalSize += file.size;
+      
+      const fileItem = document.createElement('div');
+      fileItem.className = 'file-item d-flex justify-content-between align-items-center py-1';
+      fileItem.innerHTML = `
+        <span><i class="fas fa-image me-2"></i>${file.name}</span>
+        <span class="text-muted small">${formatFileSize(file.size)}</span>
+      `;
+      fileList.appendChild(fileItem);
+    }
+    
+    // Enable predict button
+    predictBtn.disabled = false;
+    
+    // Update drop zone text
+    const dropZoneContent = dropZone.querySelector('.drop-zone-content');
+    dropZoneContent.innerHTML = `
+      <i class="fas fa-layer-group fa-3x text-success mb-3"></i>
+      <h4 class="mb-2">${files.length} Files Selected</h4>
+      <p class="text-muted mb-3">Total size: ${formatFileSize(totalSize)}</p>
+      <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('image').click()">
+        <i class="fas fa-folder-open me-2"></i>Choose More Files
+      </button>
+    `;
+  }
+
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function clearFile() {
+    fileInput.value = '';
+    fileInfo.classList.add('d-none');
+    predictBtn.disabled = true;
+    fileCount.textContent = '0';
+    analyzeCount.textContent = '0';
+    fileList.innerHTML = '';
+    
+    // Reset drop zone
+    const dropZoneContent = dropZone.querySelector('.drop-zone-content');
+    dropZoneContent.innerHTML = `
+      <i class="fas fa-layer-group fa-3x text-primary mb-3"></i>
+      <h4 class="mb-2">Drag & Drop Multiple Images Here</h4>
+      <p class="text-muted mb-3">or click to browse (up to 10 images)</p>
+      <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('image').click()">
+        <i class="fas fa-folder-open me-2"></i>Choose Files
+      </button>
+    `;
+  }
+
+  // Reset button handler
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      clearFile();
+    });
+  }
+
+  // Form submission
+  document.getElementById('predictForm').addEventListener('submit', function(e) {
+    const files = fileInput.files;
+    if (files.length === 0) {
+      e.preventDefault();
+      return;
+    }
+    
+    // Show loading state
+    predictBtn.disabled = true;
+    predictBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+  });
+});
+</script>
+{% endblock %}
 
