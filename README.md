@@ -1,14 +1,14 @@
 
-# Team Number – A Deep Learning Approach Using ConvNeXt-Tiny and EfficientNetV2-B0 for Multi-Fruit Quality Prediction
+# BB3 – A Deep Learning Approach Using ConvNeXt-Tiny and EfficientNetV2-B0 for Multi-Fruit Quality Prediction
 
 ## Team Info
-- 22471A0598 — **Kambhampati John Wesly** ( [LinkedIn](https://linkedin.com/in/xxxxxxxxxx) )
+- 22471A0598 — **Kambhampati John Wesly** ( [LinkedIn](https://in.linkedin.com/in/john-wesly-kambhampati-3876243b0) )
 _Work Done: Led the project as team leader. Handled dataset collection, preprocessing, model design, and training using ConvNeXt-Tiny. Implemented fruit classification and grading logic, optimized accuracy, and integrated the model with the full system pipeline._
 
 - 22471A0579 — **Bokkisam Naga Anil Kumar** ( [LinkedIn](https://www.linkedin.com/in/anilkumar-data/) )
 _Work Done: Supported dataset cleaning and labeling, assisted in building and validating the transfer learning model, and worked on testing the classification and grading results to ensure system accuracy and stability._
 
-- 22471A05D8 — **Vinnakota Manoj Kumar** ( [LinkedIn](https://linkedin.com/in/xxxxxxxxxx) )
+- 22471A05D8 — **Vinnakota Manoj Kumar** ( [LinkedIn](https://www.linkedin.com/in/vinnakota-manoj-kumar-1257a1281) )
 _Work Done: Focused on setting up the environment, backend integration, and frontend connection for user interaction. Helped deploy the trained model and created interfaces for fruit image upload and grading display._
 
 - 22471A05D4 — **Shaikthettu Sharif** ( [LinkedIn](https://www.linkedin.com/in/sharif-thettu-700866276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) )
