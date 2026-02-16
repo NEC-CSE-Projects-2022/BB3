@@ -1,1 +1,443 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Upload Section -->
+<section class="upload-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="upload-card animate__animated animate__fadeInUp">
+          <div class="card-header bg-gradient-primary text-white text-center py-3">
+            <h3 class="mb-0">
+              <i class="fas fa-cloud-upload-alt me-2"></i>
+              Upload Your Fruit Image
+            </h3>
+          </div>
+          
+          <div class="card-body p-4">
+            <!-- Drag & Drop Area -->
+            <div id="dropZone" class="drop-zone text-center p-5 mb-4">
+              <div class="drop-zone-content">
+                <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                <h4 class="mb-2">Drag & Drop Your Image Here</h4>
+                <p class="text-muted mb-3">or click to browse</p>
+                <button type="button" class="btn btn-primary btn-lg" onclick="document.getElementById('image').click()">
+                  <i class="fas fa-folder-open me-2"></i>Choose File
+                </button>
+              </div>
+            </div>
+
+            <!-- Hidden File Input -->
+            <form id="predictForm" method="POST" action="{{ url_for('predict') }}" enctype="multipart/form-data" novalidate>
+              <div class="mb-3 d-none">
+                <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+              </div>
+
+              <!-- File Info Display -->
+              <div id="fileInfo" class="file-info d-none mb-4">
+                <div class="alert alert-info d-flex align-items-center">
+                  <i class="fas fa-image me-3"></i>
+                  <div class="flex-grow-1">
+                    <strong id="fileName"></strong>
+                    <span class="text-muted ms-2" id="fileSize"></span>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-danger" onclick="clearFile()">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Validation Status -->
+              <div id="validationStatus" class="validation-status d-none mb-4">
+                <div class="d-flex align-items-center">
+                  <div class="spinner-border spinner-border-sm me-3" role="status">
+                    <span class="visually-hidden">Validating...</span>
+                  </div>
+                  <span class="text-muted">Validating image...</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="text-center">
+                <button id="predictBtn" type="submit" class="btn btn-success btn-lg px-5" disabled>
+                  <i class="fas fa-search me-2"></i>Analyze Fruit
+                </button>
+                <button type="reset" class="btn btn-outline-secondary btn-lg ms-2" id="resetBtn">
+                  <i class="fas fa-redo me-2"></i>Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Supported Fruits Section -->
+<section id="features" class="features-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">
+        <i class="fas fa-star text-warning me-2"></i>
+        Supported Fruits
+      </h2>
+      <p class="lead text-muted">Our AI can identify and analyze the quality of these fruits</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-apple-alt fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Apple</h5>
+          <p class="text-muted small">Fresh & Crisp</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-lemon fa-3x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Lemon</h5>
+          <p class="text-muted small">Citrus Power</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-circle fa-3x text-orange"></i>
+          </div>
+          <h5 class="fw-bold">Orange</h5>
+          <p class="text-muted small">Vitamin Rich</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-seedling fa-3x text-yellow"></i>
+          </div>
+          <h5 class="fw-bold">Banana</h5>
+          <p class="text-muted small">Energy Boost</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-apple-alt fa-3x text-success"></i>
+          </div>
+          <h5 class="fw-bold">Guava</h5>
+          <p class="text-muted small">Tropical Sweet</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-lemon fa-3x text-lime"></i>
+          </div>
+          <h5 class="fw-bold">Lime</h5>
+          <p class="text-muted small">Zesty Fresh</p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-6">
+        <div class="fruit-card text-center p-3">
+          <div class="fruit-icon-wrapper mb-3">
+            <i class="fas fa-circle fa-3x text-danger"></i>
+          </div>
+          <h5 class="fw-bold">Pomegranate</h5>
+          <p class="text-muted small">Antioxidant</p>
+        </div>
+      </div>
+      
+          </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, initializing...');
+  
+  const fileInput = document.getElementById('image');
+  const predictBtn = document.getElementById('predictBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const dropZone = document.getElementById('dropZone');
+  const fileInfo = document.getElementById('fileInfo');
+  const validationStatus = document.getElementById('validationStatus');
+
+  console.log('Elements found:');
+  console.log('fileInput:', fileInput);
+  console.log('predictBtn:', predictBtn);
+  console.log('resetBtn:', resetBtn);
+  console.log('dropZone:', dropZone);
+  console.log('fileInfo:', fileInfo);
+  console.log('validationStatus:', validationStatus);
+
+  if (!fileInput || !predictBtn || !resetBtn || !dropZone || !fileInfo || !validationStatus) {
+    console.error('Some elements are missing!');
+    return;
+  }
+
+  // Drag and Drop functionality
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => {
+      dropZone.classList.add('drag-over');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, () => {
+      dropZone.classList.remove('drag-over');
+    });
+  });
+
+  dropZone.addEventListener('drop', function(e) {
+    console.log('Drop event triggered');
+    e.preventDefault();
+    e.stopPropagation();
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    console.log('Dropped files:', files);
+    console.log('Dropped files length:', files.length);
+    
+    if (files.length > 0) {
+      // Create a new FileList with only the first file
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(files[0]);
+      fileInput.files = dataTransfer.files;
+      console.log('File input updated:', fileInput.files);
+      handleFileSelect();
+    } else {
+      console.log('No files in drop event');
+    }
+  });
+
+  // File input change handler
+  fileInput.addEventListener('change', function(e) {
+    console.log('File input change event triggered');
+    console.log('Event:', e);
+    handleFileSelect();
+  });
+
+  // Also add click handler for debugging
+  fileInput.addEventListener('click', function(e) {
+    console.log('File input clicked');
+  });
+
+  function handleFileSelect() {
+    console.log('handleFileSelect called');
+    const files = fileInput.files;
+    console.log('Files:', files);
+    console.log('Files length:', files.length);
+    
+    if (files.length === 0) {
+      console.log('No files selected');
+      clearFile();
+      return;
+    }
+
+    const f = files[0];
+    console.log('Selected file:', f);
+    console.log('File name:', f.name);
+    console.log('File size:', f.size);
+    console.log('File type:', f.type);
+
+    // Check file extension first
+    if (!f.name.toLowerCase().match(/\.(jpg|jpeg|png)$/)) {
+      console.log('Invalid file extension');
+      showInvalidModal("Invalid file type. Please select JPG, JPEG, or PNG image.");
+      clearFile();
+      return;
+    }
+
+    // Show file info
+    document.getElementById('fileName').textContent = f.name;
+    document.getElementById('fileSize').textContent = `(${(f.size / 1024 / 1024).toFixed(2)} MB)`;
+    fileInfo.classList.remove('d-none');
+    dropZone.classList.add('d-none');
+
+    // Client-side file size check
+    const maxBytes = 6 * 1024 * 1024;
+    if (f.size > maxBytes) {
+      console.log('File too large');
+      fileInput.classList.add('is-invalid');
+      showInvalidModal("File too large. Maximum size is 6 MB.");
+      if (predictBtn) predictBtn.disabled = true;
+      return;
+    } else {
+      fileInput.classList.remove('is-invalid');
+    }
+
+    // Disable predict while validating
+    if (predictBtn) predictBtn.disabled = true;
+    validationStatus.classList.remove('d-none');
+
+    console.log('Starting validation...');
+
+    const fd = new FormData();
+    fd.append('image', f);
+
+    // POST to /validate
+    fetch('/validate', {
+      method: 'POST',
+      body: fd
+    }).then(async resp => {
+      console.log('Validation response status:', resp.status);
+      if (!resp.ok) {
+        let body;
+        try { 
+          body = await resp.json(); 
+        } catch(e) { 
+          body = null; 
+        }
+        
+        if (body && body.error) {
+          if (body.error === "no file") {
+            throw new Error("No file received");
+          } else if (body.error === "empty filename") {
+            throw new Error("File has no name");
+          } else if (body.error === "invalid extension") {
+            throw new Error("Invalid file type. Please select JPG, JPEG, or PNG image.");
+          } else if (body.error === "save_failed") {
+            throw new Error("Failed to save file: " + (body.detail || "Unknown error"));
+          } else if (body.error === "type model not loaded") {
+            throw new Error("AI model not loaded. Please try again later.");
+          } else if (body.error === "Failed to process image") {
+            throw new Error("Failed to process image. Please try a different image.");
+          } else if (body.error === "prediction_failed") {
+            throw new Error("AI prediction failed: " + (body.detail || "Unknown error"));
+          } else {
+            throw new Error(body.error + (body.detail ? (": " + body.detail) : ""));
+          }
+        } else {
+          throw new Error("Validation failed (HTTP " + resp.status + ")");
+        }
+      }
+      return resp.json();
+    }).then(data => {
+      console.log('Validation response data:', data);
+      validationStatus.classList.add('d-none');
+      if (data && data.valid === true) {
+        // Valid image
+        console.log('Image is valid');
+        fileInput.classList.remove('is-invalid');
+        if (predictBtn) predictBtn.disabled = false;
+        showToast("Image validated successfully!", 'success');
+      } else {
+        // Invalid image
+        console.log('Image is invalid');
+        let reason = "Low confidence - image may not contain a fruit";
+        if (data && data.label) {
+          const confPct = (data.confidence * 100).toFixed(2);
+          reason = `Detected: ${data.label} (${confPct}% confidence - too low)`;
+        }
+        fileInput.classList.add('is-invalid');
+        showInvalidModal(reason);
+        if (predictBtn) predictBtn.disabled = true;
+      }
+    }).catch(err => {
+      console.error('Validation error:', err);
+      validationStatus.classList.add('d-none');
+      fileInput.classList.add('is-invalid');
+      showInvalidModal(err.message || "Validation failed. Please try again.");
+      if (predictBtn) predictBtn.disabled = true;
+    });
+  }
+
+  function clearFile() {
+    fileInput.value = '';
+    fileInfo.classList.add('d-none');
+    dropZone.classList.remove('d-none');
+    validationStatus.classList.add('d-none');
+    fileInput.classList.remove('is-invalid');
+  }
+
+  // Form submit validation
+  const form = document.getElementById('predictForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      if (predictBtn && predictBtn.disabled) {
+        e.preventDefault();
+        showToast("Image validation failed or still in progress. Choose another image.", 'warning');
+      }
+    });
+  }
+});
+
+// Helper functions
+function showInvalidModal(reason) {
+  // Create a better error display
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+  errorDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 400px;';
+  errorDiv.innerHTML = `
+    <strong><i class="fas fa-exclamation-triangle me-2"></i>Invalid Image</strong>
+    <div class="mt-2">${reason}</div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  `;
+  
+  document.body.appendChild(errorDiv);
+  
+  // Auto-remove after 5 seconds
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.parentNode.removeChild(errorDiv);
+    }
+  }, 5000);
+  
+  // Also log to console
+  console.error('Validation error:', reason);
+}
+
+function showToast(message, type = 'info') {
+  // Create toast notification
+  const toastDiv = document.createElement('div');
+  toastDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+  toastDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; max-width: 400px;';
+  
+  let icon = 'fas fa-info-circle';
+  if (type === 'success') icon = 'fas fa-check-circle';
+  if (type === 'warning') icon = 'fas fa-exclamation-triangle';
+  if (type === 'danger') icon = 'fas fa-times-circle';
+  
+  toastDiv.innerHTML = `
+    <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}</strong>
+    <div class="mt-1">${message}</div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  `;
+  
+  document.body.appendChild(toastDiv);
+  
+  // Auto-remove after 3 seconds
+  setTimeout(() => {
+    if (toastDiv.parentNode) {
+      toastDiv.parentNode.removeChild(toastDiv);
+    }
+  }, 3000);
+  
+  // Also log to console
+  console.log(`${type}: ${message}`);
+}
+</script>
+{% endblock %}
 
